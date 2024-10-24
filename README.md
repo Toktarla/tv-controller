@@ -1,130 +1,61 @@
-# Controle de Slides com Flutter e NodeJS via WebSocket
+# Slide Control with Flutter and NodeJS via WebSocket
+This project allows you to control a Slideshow (or any other software) remotely by simulating mouse and keyboard movements through a Flutter app connected via WebSocket to a NodeJS server. The Flutter app uses the device's accelerometer and gyroscope sensors to detect motion, providing a smooth experience for navigating between slides or performing actions remotely.
 
-Este projeto permite controlar um **Slideshow** (ou qualquer outro software) à distância, simulando movimentos de **mouse** e **teclado** através de um aplicativo Flutter conectado via **WebSocket** a um servidor NodeJS. O app Flutter utiliza os sensores de **acelerômetro** e **giroscópio** do dispositivo para detectar movimentos, proporcionando uma experiência fluida para navegar entre slides ou realizar ações remotamente.
+## Features
+Remote control of slide presentations.
+Simulation of mouse movements and keyboard actions.
+Real-time connection between NodeJS and the Flutter app via WebSocket.
+Use of accelerometer and gyroscope sensors to detect motion.
+Ideal for controlling presentations from a distance.
 
-## Funcionalidades
+## Requirements
+Server (NodeJS)
+Node.js (v14.x or higher)
+WebSocket
+Libraries for simulating mouse and keyboard actions
+App (Flutter)
+Flutter SDK (v2.0 or higher)
+sensors_plus plugin for accessing the device sensors
+WebSocket for communication with the server
 
-- Controle remoto de apresentações de slides.
-- Simulação de movimentos do mouse e ações do teclado.
-- Conexão em tempo real entre o **NodeJS** e o aplicativo **Flutter** via **WebSocket**.
-- Utilização dos sensores de **acelerômetro** e **giroscópio** para detectar movimentos.
-- Ideal para quem precisa controlar apresentações enquanto está longe do dispositivo.
+## How It Works
+NodeJS Server
+The NodeJS server receives commands from the Flutter app via WebSocket and simulates mouse and keyboard actions on the host system. Based on the data sent by the accelerometer and gyroscope, the server performs the following actions:
+Mouse Movement: Depending on the tilt and movement of the device.
+Slide Forward/Backward: Using specific gestures or tilts to send keyboard commands (e.g., left arrow and right arrow keys).
+Flutter App
+The app collects movement data via sensors (accelerometer/gyroscope) and sends this data to the NodeJS server via WebSocket. The server interprets this data and translates it into mouse/keyboard commands.
 
-## Requisitos
+##  Usage Examples
+Move Left/Right
+Tilt the device to the left to simulate the left arrow key.
+Tilt the device to the right to simulate the right arrow key.
+Mouse Movement
+Smooth movements along the X or Y axes of the gyroscope can be used to move the mouse cursor.
 
-### Servidor (NodeJS)
-
-- Node.js (v14.x ou superior)
-- WebSocket
-- Bibliotecas para simulação de mouse e teclado
-
-### Aplicativo (Flutter)
-
-- Flutter SDK (v2.0 ou superior)
-- Plugin `sensors_plus` para acesso aos sensores do dispositivo
-- WebSocket para comunicação com o servidor
-
-## Instalação
-
-### 1. Clone o repositório
-
-```bash
-git clone https://github.com/cl0v/tv-controller
-cd tv-controller
-```
-
-### 2. Configuração do Servidor NodeJS
-
-Instale as dependências do NodeJS:
-
-```bash
-cd nodejs
-npm install
-```
-
-### 3. Inicie o Servidor WebSocket
-
-```bash
-npm run start
-```
-
-### 4. Configuração do Aplicativo Flutter
-
-Certifique-se de que o Flutter está instalado e as dependências estão configuradas:
-
-```bash
-cd flutter
-flutter pub get
-```
-
-### 5. Execute o Aplicativo Flutter
-
-Conecte um dispositivo ou use o emulador para rodar o app:
-
-```bash
-flutter run
-```
-
-## Como Funciona
-
-### Servidor NodeJS
-
-O servidor NodeJS recebe comandos do aplicativo Flutter via WebSocket e simula as ações de mouse e teclado no sistema host. Dependendo dos dados enviados pelo acelerômetro e giroscópio, o servidor realiza as seguintes ações:
-
-- **Movimento do Mouse**: Com base na inclinação e movimento do dispositivo.
-- **Avanço/Retrocesso de Slide**: Utilizando gestos ou inclinações específicas do dispositivo para enviar comandos de teclado (ex.: teclas `seta para esquerda` e `seta para direita`).
-
-### Aplicativo Flutter
-
-O aplicativo coleta os dados de movimento através dos sensores (acelerômetro/giroscópio) e envia esses dados para o servidor NodeJS via WebSocket. O servidor interpreta esses dados e os transforma em comandos de mouse/teclado.
-
-## Exemplos de Uso
-
-### Movimento para a Esquerda/Direita
-
-- Incline o dispositivo para a esquerda para simular o pressionamento da **seta para a esquerda**.
-- Incline o dispositivo para a direita para simular o pressionamento da **seta para a direita**.
-
-### Movimento do Mouse
-
-- Movimentos suaves no eixo **X** ou **Y** do giroscópio podem ser usados para mover o cursor do mouse.
-
-## Capturas de tela
+## Screenshots
 ![Exemplo de uso](/screenshots/output.gif)
 
-## Tecnologias Utilizadas
+## Technologies Used
+NodeJS: To manage the WebSocket server and control mouse and keyboard actions.
+WebSocket: For real-time communication between the server and the Flutter app.
+Flutter: To capture data from the accelerometer and gyroscope and send it to the server.
+sensors_plus: Flutter plugin for accessing sensors like the accelerometer and gyroscope.
+robotjs: NodeJS library for simulating mouse and keyboard actions.
 
-- **NodeJS**: Para gerenciar o servidor WebSocket e controlar as ações de mouse e teclado.
-- **WebSocket**: Para comunicação em tempo real entre o servidor e o app Flutter.
-- **Flutter**: Para capturar dados do acelerômetro e giroscópio e enviar ao servidor.
-- **sensors_plus**: Plugin Flutter para acessar sensores como o acelerômetro e giroscópio.
-- **robotjs**: Biblioteca NodeJS para simular ações de mouse e teclado.
+## Contributing
+Fork the project
+Create a branch for your feature (git checkout -b feature/new-feature)
+Commit your changes (git commit -m 'Add new feature')
+Push to the branch (git push origin feature/new-feature)
+Open a Pull Request
 
-## Contribuindo
+## License
+This project is licensed under the Apache 2.0 License.
 
-1. Faça um fork do projeto
-2. Crie uma branch para sua feature (`git checkout -b feature/nova-feature`)
-3. Faça commit das suas mudanças (`git commit -m 'Adiciona nova feature'`)
-4. Faça um push para a branch (`git push origin feature/nova-feature`)
-5. Abra um Pull Request
+## Contact
+If you have any questions or suggestions, feel free to open an issue or contact me on LinkedIn.
 
-## Buy me a Coffee
-
-Give a ⭐️ if this project helped you!
-
-<a href="https://www.patreon.com/cl0v">
-  <img src="https://c5.patreon.com/external/logo/become_a_patron_button@2x.png" width="160">
-</a>
-
-## Licença
-
-Este projeto está licenciado sob a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0).
-
-## Contato
-
-Caso tenha dúvidas ou sugestões, sinta-se à vontade para abrir uma **issue** ou entrar em contato pelo [LinkedIn](https://www.linkedin.com/in/marcelo-fernandes-viana-a49311329/).
-
-### Estrutura do Projeto:
-
-- **nodejs/**: Contém o código do servidor NodeJS.
-- **flutter/**: Contém o código do aplicativo Flutter.
+## Project Structure:
+nodejs/: Contains the NodeJS server code.
+flutter/: Contains the Flutter app code.
